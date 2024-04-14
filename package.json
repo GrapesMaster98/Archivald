@@ -4,11 +4,14 @@
   "description": "An NPM package that helps you build Discord bots faster!",
   "main": "index.js",
   "type": "module",
+  "repository": {
+    "url": "git+https://github.com/GrapesMaster98/Archivald.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "archivald": "./index.js"
+    "archivald": "index.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +22,7 @@
     "inquirer": "^9.2.18"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.4"
+    "@babel/core": "^7.24.4",
+    "@changesets/cli": "^2.27.1"
   }
 }
