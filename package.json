@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org"
   },
   "repository": {
     "url": "git+https://github.com/GrapesMaster98/Archivald.git"
