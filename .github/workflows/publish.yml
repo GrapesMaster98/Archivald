@@ -1,11 +1,16 @@
 name: Publish
 
 on:
-    push:
-        branches:
-            - "main"
+  workflow_run:
+    workflows: [Node.js Package]
+    branches: [main]
+    types: [completed]
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
     publish:
