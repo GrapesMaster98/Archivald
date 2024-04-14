@@ -4,6 +4,9 @@
   "description": "An NPM package that helps you build Discord bots faster!",
   "main": "index.js",
   "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "repository": {
     "url": "git+https://github.com/GrapesMaster98/Archivald.git"
   },
