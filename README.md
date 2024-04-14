@@ -3,7 +3,10 @@ Archivald is a helpful NPM package that helps you create Discord bots faster!
 
 ## ❓ How to use
 First, install Archivald as a global depencendy.
+
+
 `$ npm install -g archivald`
+
 
 Then, execute Archivald and answer the questions
 
