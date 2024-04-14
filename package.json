@@ -1,5 +1,5 @@
 {
-  "name": "@GrapesMaster98/Archivald",
+  "name": "archivald",
   "version": "0.0.2",
   "description": "An NPM package that helps you build Discord bots faster!",
   "main": "index.js",
