@@ -1,11 +1,11 @@
 {
-  "name": "archivald",
+  "name": "@GrapesMaster98/Archivald",
   "version": "0.0.2",
   "description": "An NPM package that helps you build Discord bots faster!",
   "main": "index.js",
   "type": "module",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "url": "git+https://github.com/GrapesMaster98/Archivald.git"
