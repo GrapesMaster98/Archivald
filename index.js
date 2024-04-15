@@ -84,7 +84,7 @@ inquirer.prompt(questions).then(async answers => {
 
     console.log(chalk.yellow(`Creating .env file in ${CURR_DIR}/${projectName}`));
     fs.writeFileSync(`${CURR_DIR}/${projectName}/.env`, `TOKEN=${projectToken}`);
-    console.log(chalk.green(`Created .env file in ${CURR_DIR}/${projectName}`));    
+    console.log(chalk.green(`Created .env file in ${CURR_DIR}/${projectName}`));
 
     CreateDirectoryContents(templatePath, projectName);
     
