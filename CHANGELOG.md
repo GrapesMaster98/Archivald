@@ -1,5 +1,13 @@
 # archivald
 
+## 0.2.0
+
+### Minor Changes
+
+- - Created MongoDB and MySQL templates
+  - Changed init command (archivald create)
+  - Changed package.json logic
+
 ## 0.1.0
 
 ### Minor Changes
