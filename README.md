@@ -5,7 +5,6 @@
 </p>
 <p align="center">Create Discord bots faster than ever</p>
 
-![archie-logo](https://i.imgur.com/drqcahZ.png)
 
 ## What is Archivald?
 
