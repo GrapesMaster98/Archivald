@@ -7,6 +7,8 @@ import CreateDirectoryContents from './createDir.js';
 import { exec } from 'child_process';
 const CURR_DIR = process.cwd();
 
+import chalk from 'chalk';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const CHOICES = fs.readdirSync(`${__dirname}/templates`);
@@ -34,6 +36,15 @@ const questions = [
         choices: CHOICES,
     },
 ];
+
+console.log(chalk.blue(`
+ ______   ______   ______   __  __   __   __   __ ______   __       _____    
+/\  __ \ /\  == \ /\  ___\ /\ \_\ \ /\ \ /\ \ / //\  __ \ /\ \     /\  __-.  
+\ \  __ \\ \  __< \ \ \____\ \  __ \\ \ \\ \ \'/ \ \  __ \\ \ \____\ \ \/\ \ 
+ \ \_\ \_\\ \_\ \_\\ \_____\\ \_\ \_\\ \_\\ \__|  \ \_\ \_\\ \_____\\ \____- 
+  \/_/\/_/ \/_/ /_/ \/_____/ \/_/\/_/ \/_/ \/_/    \/_/\/_/ \/_____/ \/____/ 
+                                                                                                                                                                                                                                                                                           
+`))
 
 inquirer.prompt(questions).then(async answers => {
     const projectChoice = answers['dbtype'];
@@ -67,12 +78,15 @@ inquirer.prompt(questions).then(async answers => {
         });
     }
 
-    await fs.mkdirSync(`${CURR_DIR}/${projectName}`).then(() => {
-        console.log(`Created ${projectName} in ${CURR_DIR}`);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/.env`, `TOKEN=${projectToken}`);
-        console.log(`Created .env file in ${CURR_DIR}/${projectName}`); 
-    });
+    console.log(chalk.yellow(`Creating ${projectName} in ${CURR_DIR}`));
+    fs.mkdirSync(`${CURR_DIR}/${projectName}`);
+    console.log(chalk.green(`Created ${projectName} in ${CURR_DIR}`));
+
+    console.log(chalk.yellow(`Creating .env file in ${CURR_DIR}/${projectName}`));
+    fs.writeFileSync(`${CURR_DIR}/${projectName}/.env`, `TOKEN=${projectToken}`);
+    console.log(chalk.green(`Created .env file in ${CURR_DIR}/${projectName}`));    
 
     CreateDirectoryContents(templatePath, projectName);
     
+    console.log(`✔ ${chalk.green(`The project was successfully created in ${CURR_DIR}/${projectName}`)}`);
 });
