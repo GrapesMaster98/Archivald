@@ -79,14 +79,42 @@ inquirer.prompt(questions).then(async answers => {
     }
 
     console.log(chalk.yellow(`Creating ${projectName} in ${CURR_DIR}`));
-    fs.mkdirSync(`${CURR_DIR}/${projectName}`);
+    await fs.mkdirSync(`${CURR_DIR}/${projectName}`);
     console.log(chalk.green(`Created ${projectName} in ${CURR_DIR}`));
 
     console.log(chalk.yellow(`Creating .env file in ${CURR_DIR}/${projectName}`));
-    fs.writeFileSync(`${CURR_DIR}/${projectName}/.env`, `TOKEN=${projectToken}`);
+    await fs.writeFileSync(`${CURR_DIR}/${projectName}/.env`, `TOKEN=${projectToken}`);
     console.log(chalk.green(`Created .env file in ${CURR_DIR}/${projectName}`));    
 
-    CreateDirectoryContents(templatePath, projectName);
+    await CreateDirectoryContents(templatePath, projectName);
+
+    console.log(`✔ ${chalk.green(`Project created sucesfully, installing dependencies...`)}`);
+
+    await exec(`npm init -y`, (err, stdout, stderr) => {
+        if (err) {
+            console.log(`error: ${err.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+    });
+
+    await exec(`npm install discord.js dotenv`, (err, stdout, stderr) => {
+        if (err) {
+            console.log(`error: ${err.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+    });
     
     console.log(`✔ ${chalk.green(`The project was successfully created in ${CURR_DIR}/${projectName}`)}`);
+    console.log(chalk.blue('Give it a try! Run "node index.js" in the project folder!' ));
+
 });
